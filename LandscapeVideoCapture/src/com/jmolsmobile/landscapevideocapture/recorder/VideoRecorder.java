@@ -186,7 +186,7 @@ public class VideoRecorder implements OnInfoListener, CapturePreviewInterface {
         }
     }
 
-    protected boolean isRecording() {
+    public boolean isRecording() {
         return mRecording;
     }
 
