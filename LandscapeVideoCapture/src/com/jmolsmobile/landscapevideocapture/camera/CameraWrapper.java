@@ -37,6 +37,17 @@ public class CameraWrapper {
 
     private Camera     mCamera     = null;
     private Parameters mParameters = null;
+    private int mFacing = CameraInfo.CAMERA_FACING_BACK;
+
+    public CameraWrapper() {
+        this(CameraInfo.CAMERA_FACING_BACK);
+    }
+
+    public CameraWrapper(int cameraFacing) {
+        if (cameraFacing == CameraInfo.CAMERA_FACING_BACK || cameraFacing == CameraInfo.CAMERA_FACING_FRONT) {
+            mFacing = cameraFacing;
+        }
+    }
 
     public Camera getCamera() {
         return mCamera;
@@ -114,7 +125,7 @@ public class CameraWrapper {
     }
 
     protected Camera openCameraFromSystem() {
-        return Camera.open(CameraInfo.CAMERA_FACING_BACK);
+        return Camera.open(mFacing);
     }
 
     protected void unlockCameraFromSystem() {
