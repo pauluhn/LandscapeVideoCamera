@@ -21,8 +21,8 @@ public class RecordingSize {
     public int width;
     public int height;
 
-    public RecordingSize(int widht, int height) {
-        this.width = widht;
+    public RecordingSize(int width, int height) {
+        this.width = width;
         this.height = height;
     }
 }
