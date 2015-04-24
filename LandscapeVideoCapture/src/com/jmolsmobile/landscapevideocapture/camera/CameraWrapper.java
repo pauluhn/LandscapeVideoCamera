@@ -143,7 +143,8 @@ public class CameraWrapper {
     protected List<Size> getSupportedVideoSizes() {
         Parameters params = getCameraParametersAfterUnlocking();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            return params.getSupportedVideoSizes();
+            List<Size> videoSizes = params.getSupportedVideoSizes();
+            return (videoSizes != null) ? videoSizes : params.getSupportedPreviewSizes();
         } else {
             CLog.e(CLog.CAMERA, "Using supportedPreviewSizes iso supportedVideoSizes due to API restriction");
             return params.getSupportedPreviewSizes();
